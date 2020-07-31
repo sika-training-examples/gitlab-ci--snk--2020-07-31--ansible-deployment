@@ -22,6 +22,9 @@ deploy dev:
   script:
     - make deploy-setup
     - make deploy
+  environment:
+    name: dev
+    url: https://DEPLOY_HOST_DEV
 
 test dev:
   stage: test dev
@@ -37,6 +40,9 @@ deploy prod:
     - make deploy
   only:
     - master
+  environment:
+    name: prod
+    url: https://DEPLOY_HOST_PROD
 
 test prod:
   stage: test prod
