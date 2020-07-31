@@ -1,0 +1,17 @@
+- name: Ensure /var/lib/apps
+  file:
+    path: /var/lib/apps
+    state: directory
+    mode: "0755"
+- name: Copy server
+  copy:
+    src: ../server
+    dest: /var/lib/apps/server
+    owner: root
+    group: root
+    mode: 0755
+- name: Start Systemd Service
+  systemd:
+    state: started
+    name: helloworld
+    enabled: yes
