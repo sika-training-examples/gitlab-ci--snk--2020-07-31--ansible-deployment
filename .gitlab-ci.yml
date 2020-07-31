@@ -21,7 +21,7 @@ deploy dev:
   stage: deploy dev
   script:
     - make deploy-setup
-    - make deploy-dev
+    - make deploy
 
 test dev:
   stage: test dev
@@ -34,7 +34,7 @@ deploy prod:
   stage: deploy prod
   script:
     - make deploy-setup
-    - make deploy-prod
+    - make deploy
 
 test prod:
   stage: test prod

@@ -10,5 +10,5 @@ clean:
 deploy-setup:
 	cd deploy; pipenv install
 
-deploy-dev:
+deploy:
 	cd deploy; pipenv run ansible-playbook dev.yml
