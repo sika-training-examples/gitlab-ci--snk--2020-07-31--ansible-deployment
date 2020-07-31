@@ -1,3 +1,5 @@
+.PHONY: deploy
+
 build:
 	go build server.go
 
