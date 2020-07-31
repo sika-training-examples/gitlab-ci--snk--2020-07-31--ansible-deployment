@@ -22,3 +22,21 @@ deploy dev:
   script:
     - make deploy-setup
     - make deploy-dev
+
+test dev:
+  stage: test dev
+  script:
+    - curl $DEPLOY_HOST_DEV
+
+deploy prod:
+  variables:
+    DEPLOY_HOST: $DEPLOY_HOST_PROD
+  stage: deploy prod
+  script:
+    - make deploy-setup
+    - make deploy-prod
+
+test prod:
+  stage: test prod
+  script:
+    - curl $DEPLOY_HOST_PROD
