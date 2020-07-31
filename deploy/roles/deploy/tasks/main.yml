@@ -12,6 +12,6 @@
     mode: 0755
 - name: Start Systemd Service
   systemd:
-    state: started
+    state: restarted
     name: helloworld
     enabled: yes
