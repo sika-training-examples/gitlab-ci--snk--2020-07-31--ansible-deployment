@@ -1,0 +1,9 @@
+---
+- name: Stop Systemd Service
+  hosts: all
+  tasks:
+    - name: Stop Systemd Service
+      systemd:
+        state: stopped
+        name: helloworld
+        enabled: no

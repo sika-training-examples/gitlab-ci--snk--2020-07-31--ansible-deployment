@@ -25,6 +25,18 @@ deploy dev:
   environment:
     name: dev
     url: http://$DEPLOY_HOST_DEV
+    on_stop: stop dev
+
+stop dev:
+  variables:
+    DEPLOY_HOST: $DEPLOY_HOST_DEV
+  stage: deploy dev
+  script:
+    - make deploy-setup
+    - make stop
+  environment:
+    name: dev
+    action: stop
 
 test dev:
   stage: test dev

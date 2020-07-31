@@ -14,3 +14,6 @@ deploy-setup:
 
 deploy:
 	cd deploy; pipenv run ansible-playbook deploy.yml
+
+stop:
+	cd deploy; pipenv run ansible-playbook stop.yml
