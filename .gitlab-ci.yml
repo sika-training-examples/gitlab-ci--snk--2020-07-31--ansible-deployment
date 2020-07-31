@@ -1,0 +1,13 @@
+stages:
+  - build
+  - deploy dev
+  - test dev
+  - deploy prod
+  - test prod
+
+build:
+  stage: build
+  script: make build
+  artifacts:
+    paths:
+      - server
