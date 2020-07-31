@@ -28,6 +28,7 @@ deploy dev:
     on_stop: stop dev
 
 stop dev:
+  when: manual
   variables:
     DEPLOY_HOST: $DEPLOY_HOST_DEV
   stage: deploy dev
