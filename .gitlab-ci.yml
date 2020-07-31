@@ -35,8 +35,12 @@ deploy prod:
   script:
     - make deploy-setup
     - make deploy
+  only:
+    - master
 
 test prod:
   stage: test prod
   script:
     - curl $DEPLOY_HOST_PROD
+  only:
+    - master
