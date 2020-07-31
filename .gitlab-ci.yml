@@ -5,6 +5,9 @@ stages:
   - deploy prod
   - test prod
 
+before_script:
+  - export PATH=$PATH:/usr/local/go/bin
+
 build:
   stage: build
   script: make build
