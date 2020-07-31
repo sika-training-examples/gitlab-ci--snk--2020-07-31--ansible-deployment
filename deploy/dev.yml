@@ -1,0 +1,30 @@
+---
+- name: Create Systemd Service
+  hosts: all
+  vars:
+    custom_systemd_services:
+      - name: helloworld
+        description: Simple Go server
+        exec_start: /var/lib/apps/server
+  roles:
+    - custom_systemd_service
+- name: Deploy App
+  hosts: all
+  tasks:
+    - name: Ensure /var/lib/apps
+      file:
+        path: /var/lib/apps
+        state: directory
+        mode: "0755"
+    - name: Copy server
+      copy:
+        src: ../server
+        dest: /var/lib/apps/server
+        owner: root
+        group: root
+        mode: 0755
+    - name: Start Systemd Service
+      systemd:
+        state: started
+        name: helloworld
+        enabled: yes

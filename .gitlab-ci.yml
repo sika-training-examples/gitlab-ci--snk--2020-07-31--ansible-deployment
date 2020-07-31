@@ -14,3 +14,9 @@ build:
   artifacts:
     paths:
       - server
+
+deploy dev:
+  variables:
+    DEPLOY_HOST: $DEPLOY_HOST_DEV
+  stage: deploy dev
+  script: make deploy-dev
